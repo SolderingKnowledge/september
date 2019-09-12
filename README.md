@@ -29,3 +29,10 @@ http://localhost:3000
 `"server": "nodemon app.js"` to run express server 
 
 `"both": "concurrently \"npm run server\" \"npm run client\""` to run both--client and server backslashes to escape the double quotes
+
+
+## .gitignore
+
+`node_modules/`  either  `node_modules`
+
+`.DS_Store`
