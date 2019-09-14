@@ -13,21 +13,36 @@ class App extends Component {
     
   }
 
-  requesting = (method)=>{
+  posting = (method)=>{
     return new Promise((resolve, reject)=>{
-      fetch("http://localhost:3001", {
-      method: method,
-      headers: {
-        "Accept": "application/json",
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({a:1, b:2})
-    }).then(data => {
+      fetch("http://localhost:5000", {
+        method: method,
+        headers:{
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body:JSON.stringify({a:1, b:2})
+      }).then(data => {
       if(data){
-        resolve(data)
         console.log(data);
+        resolve(data)
       }
     }).catch( error=>{
+      console.log("error");
+      reject(error);
+    })  
+    })
+    
+  }
+  getting = (method)=>{
+    return new Promise((resolve, reject)=>{
+      fetch("http://localhost:5000").then(data => {
+      if(data){
+        console.log(data);
+        resolve(data)
+      }
+    }).catch( error=>{
+      console.log("error");
       reject(error);
     })  
     })
@@ -37,7 +52,8 @@ class App extends Component {
     return (  
       <div>
         <div>{this.state.data}</div>
-        <button onClick = {() => this.requesting("POST")}></button>
+        <button onClick = {() => this.posting("POST")}>POST</button>
+        <button onClick = {() => this.getting("GET")}>GET</button>
       </div>
     );
   }
