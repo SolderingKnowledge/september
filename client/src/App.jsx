@@ -34,7 +34,7 @@ class App extends Component {
     })
     
   }
-  getting = (method)=>{
+  getting = ()=>{
     return new Promise((resolve, reject)=>{
       fetch("http://localhost:5000").then(data => {
       if(data){
@@ -53,7 +53,7 @@ class App extends Component {
       <div>
         <div>{this.state.data}</div>
         <button onClick = {() => this.posting("POST")}>POST</button>
-        <button onClick = {() => this.getting("GET")}>GET</button>
+        <button onClick = {() => this.getting()}>GET</button>
       </div>
     );
   }
