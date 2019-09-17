@@ -26,7 +26,7 @@ http://localhost:3000
 
 `"client": "npm run start --prefix client"` to run react app within client folder
 
-`"server": "nodemon app.js"` to run express server 
+`"backend": "nodemon app.js"` to run express server 
 
 `"both": "concurrently \"npm run server\" \"npm run client\""` to run both--client and server backslashes to escape the double quotes
 
